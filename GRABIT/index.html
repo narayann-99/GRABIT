@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrabIt - Minimal Video Downloader</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Main Container -->
+      <main class="container">
+        <!-- Header -->
+        <header class="header">
+          <div class="logo">
+            <i class="ph-bold ph-download-simple"></i>
+            <span>GrabIt</span>
+          </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="title">Download any video.<br/>Clean and simple.</h1>
+          <p class="subtitle">Extract high-quality video and audio from YouTube, Instagram, and Facebook.</p>
+        </section>
+
+        <!-- Downloader Interface -->
+        <section class="downloader-card">
+          <form id="download-form" class="input-group">
+            <div class="input-wrapper">
+              <input type="url" id="video-url" placeholder="Paste media link..." required autocomplete="off" />
+              <div id="platform-indicator" class="platform-indicator hidden">
+                <div class="tag youtube" id="tag-youtube">YOUTUBE</div>
+                <div class="tag instagram" id="tag-instagram">INSTAGRAM</div>
+                <div class="tag facebook" id="tag-facebook">FACEBOOK</div>
+              </div>
+            </div>
+            <button type="submit" id="download-btn" class="primary-btn">
+              <span class="btn-text">Process Link</span>
+              <div class="spinner hidden"></div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Results Section (Hidden initially) -->
+        <section id="results-section" class="results-section hidden">
+          <div class="bento-grid">
+            <!-- Media Preview Card -->
+            <div class="bento-card media-preview">
+              <div class="thumbnail-wrapper">
+                <img id="video-thumbnail" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop&sat=-100" alt="Video Thumbnail">
+                <div class="play-overlay"><i class="ph-fill ph-play"></i></div>
+              </div>
+              <div class="video-info">
+                <h3 id="video-title">Epic Cinematic B-Roll - 4K 60fps</h3>
+                <div class="meta-row">
+                  <span class="muted-text" id="video-duration">03:45</span>
+                  <span class="platform-badge" id="result-platform">YOUTUBE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Options Card -->
+            <div class="bento-card download-options">
+              
+              <div class="option-column">
+                <h4 class="column-title">Video Formats</h4>
+                <div class="format-list" id="video-formats">
+                  <div class="format-item">
+                    <span class="quality">1080p MP4</span>
+                    <div class="action-group">
+                      <span class="size">45 MB</span>
+                      <button class="dl-btn"><i class="ph-bold ph-download-simple"></i></button>
+                    </div>
+                  </div>
+                  <div class="format-item">
+                    <span class="quality">720p MP4</span>
+                    <div class="action-group">
+                      <span class="size">22 MB</span>
+                      <button class="dl-btn"><i class="ph-bold ph-download-simple"></i></button>
+                    </div>
+                  </div>
+                  <div class="format-item">
+                    <span class="quality">360p MP4</span>
+                    <div class="action-group">
+                      <span class="size">8 MB</span>
+                      <button class="dl-btn"><i class="ph-bold ph-download-simple"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="option-column">
+                <h4 class="column-title">Audio Formats</h4>
+                <div class="format-list" id="audio-formats">
+                  <div class="format-item">
+                    <span class="quality">320 kbps MP3</span>
+                    <div class="action-group">
+                      <span class="size">9 MB</span>
+                      <button class="dl-btn"><i class="ph-bold ph-download-simple"></i></button>
+                    </div>
+                  </div>
+                  <div class="format-item">
+                    <span class="quality">128 kbps MP3</span>
+                    <div class="action-group">
+                      <span class="size">3.5 MB</span>
+                      <button class="dl-btn"><i class="ph-bold ph-download-simple"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
